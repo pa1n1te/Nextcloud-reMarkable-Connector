@@ -1,18 +1,12 @@
 <?php
-script('remarkableconnector', 'script');
-style('remarkableconnector', 'style');
+
+declare(strict_types=1);
+
+use OCP\Util;
+
+Util::addScript(OCA\ReMarkableConnector\AppInfo\Application::APP_ID, OCA\ReMarkableConnector\AppInfo\Application::APP_ID . '-main');
+Util::addStyle(OCA\ReMarkableConnector\AppInfo\Application::APP_ID, OCA\ReMarkableConnector\AppInfo\Application::APP_ID . '-main');
+
 ?>
 
-<div id="app">
-	<div id="app-navigation">
-		<?php print_unescaped($this->inc('navigation/index')); ?>
-		<?php print_unescaped($this->inc('settings/index')); ?>
-	</div>
-
-	<div id="app-content">
-		<div id="app-content-wrapper">
-			<?php print_unescaped($this->inc('content/index')); ?>
-		</div>
-	</div>
-</div>
-
+<div id="remarkableconnector"></div>

@@ -1,52 +1,45 @@
-# Re Markable Connector
-Place this app in **nextcloud/apps/**
+# reMarkable Connector
 
-## Building the app
+Sync your reMarkable cloud documents with Nextcloud.
 
-The app can be built by using the provided Makefile by running:
+## Description
 
-    make
+This Nextcloud app connects your Nextcloud instance with your reMarkable cloud account, allowing you to sync documents between both platforms.
 
-This requires the following things to be present:
-* make
-* which
-* tar: for building the archive
-* curl: used if phpunit and composer are not installed to fetch them from the web
-* npm: for building and testing everything JS, only required if a package.json is placed inside the **js/** folder
+## Status
 
-The make command will install or update Composer dependencies if a composer.json is present and also **npm run build** if a package.json is present in the **js/** folder. The npm **build** script should use local paths for build systems and package managers, so people that simply want to build the app won't need to install npm libraries globally, e.g.:
+🚧 **Work in Progress** - This app is currently under development.
 
-**package.json**:
-```json
-"scripts": {
-    "test": "node node_modules/gulp-cli/bin/gulp.js karma",
-    "prebuild": "npm install && node_modules/bower/bin/bower install && node_modules/bower/bin/bower update",
-    "build": "node node_modules/gulp-cli/bin/gulp.js"
-}
+## Features (Planned)
+
+- Sync documents from reMarkable cloud to Nextcloud
+- Bi-directional sync support
+- Automatic sync scheduling
+- Manual sync triggers
+
+## Installation
+
+Place this app in `nextcloud/apps/remarkableconnector` and enable it through the Nextcloud apps interface.
+
+## Development
+
+Based on the modern Nextcloud app template with:
+- Vue 3 + TypeScript frontend
+- PHP 8.1+ backend
+- Vite for build tooling
+
+### Building
+
+```bash
+npm install
+npm run build
 ```
 
+## Resources
 
-## Publish to App Store
+- reMarkable API: https://github.com/splitbrain/ReMarkableAPI
+- Nextcloud developer docs: https://docs.nextcloud.com/server/latest/developer_manual
 
-First get an account for the [App Store](http://apps.nextcloud.com/) then run:
+## License
 
-    make && make appstore
-
-The archive is located in build/artifacts/appstore and can then be uploaded to the App Store.
-
-## Running tests
-You can use the provided Makefile to run all tests by using:
-
-    make test
-
-This will run the PHP unit and integration tests and if a package.json is present in the **js/** folder will execute **npm run test**
-
-Of course you can also install [PHPUnit](http://phpunit.de/getting-started.html) and use the configurations directly:
-
-    phpunit -c phpunit.xml
-
-or:
-
-    phpunit -c phpunit.integration.xml
-
-for integration tests
+AGPL-3.0-or-later
